@@ -13,11 +13,17 @@ export const usePlayer = () => {
   });
 
   const rotate = (matrix, dir) => {
-    //make all rows into columns - thus rotating the shape (transpose)
+    //make all rows into columns - thus rotating the shape (transpose array)
 
-    const rotatedTetro = matrix.map((_, index) =>
-      matrix.map(col => col[index])
-    );
+    // const rotatedTetro = matrix.map((_, index) =>
+    //   matrix.map(col => col[index])
+    // );
+
+    const rotatedTetro = matrix.map((_, index) => {
+      return matrix.map(col => {
+        return col[index];
+      });
+    });
 
     //reverse each row to get a rotated matrix
     if (dir > 0) return rotatedTetro.map(row => row.reverse());
